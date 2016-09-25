@@ -39,18 +39,17 @@ function minifyStyles() {
 }
 
 const styles = gulp.series(compileLESS, minifyStyles);
-
-function watch() {
-	gulp.watch(PATHS.html, html);
-	gulp.watch(PATHS.less, styles);
-}
-export {
-	watch
-};
+const build = gulp.series(clean, gulp.parallel(html, styles));
 
 // FIXME: See https://github.com/sindresorhus/del/issues/45
 // function build() {
 // 	return gulp.series(clean, gulp.parallel(html, styles));
 // }
 
-gulp.task('default', gulp.series(clean, gulp.parallel(html, styles)));
+function watch() {
+	gulp.watch(PATHS.html, html)
+	gulp.watch(PATHS.less, styles);
+}
+
+gulp.task('default', build);
+gulp.task('watch', gulp.series(build, watch));
