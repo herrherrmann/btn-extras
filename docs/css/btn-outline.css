@@ -1,0 +1,46 @@
+.btn.btn-default.btn-outline {
+  color: #fff;
+  background-color: #333;
+  border-color: #fff;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn.btn-default.btn-outline:hover {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  color: #fff;
+  background-color: #a3a3a3;
+  border-color: #a3a3a3;
+}
+.btn.btn-default.btn-outline.active {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn.btn-default.btn-outline.active .text-muted,
+.btn.btn-default.btn-outline.active small,
+.btn.btn-default.btn-outline.active span {
+  color: #333;
+}
+.btn.btn-primary.btn-outline {
+  color: #337ab7;
+  background-color: #fff;
+  border-color: #337ab7;
+}
+.btn.btn-primary.btn-outline:hover {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+.btn.btn-primary.btn-outline.active {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+.btn.btn-primary.btn-outline.active .text-muted,
+.btn.btn-primary.btn-outline.active small,
+.btn.btn-primary.btn-outline.active span {
+  color: #fff;
+}
