@@ -1,0 +1,45 @@
+@import 'node_modules/bootstrap/less/variables';
+.btn {
+	&.btn-default.btn-outline {
+		.btn-variant-outline(default);
+	}
+	&.btn-primary.btn-outline {
+		.btn-variant-outline(primary);
+	}
+}
+
+.btn-variant-outline(@state: primary) {
+	// @state-text-color: 'state-@{state}-text';
+	@btn-state-color : 'btn-@{state}-color';
+	@btn-state-bg : 'btn-@{state}-bg';
+	@btn-state-border: 'btn-@{state}-border';
+	color: @@btn-state-bg;
+	background-color: @@btn-state-color;
+	border-color: @@btn-state-bg;
+	// default style for 'default' btn
+	& when (@state =default) {
+		color: @@btn-state-color;
+		background-color: @@btn-state-bg;
+		border-color: @@btn-state-border;
+	}
+	&:hover {
+		color: @@btn-state-color;
+		background-color: @@btn-state-bg;
+		border-color: @@btn-state-border;
+		& when (@state =default) {
+			color: @@btn-state-bg;
+			background-color: darken(@@btn-state-bg, 36%);
+			border-color: darken(@@btn-state-bg, 36%);
+		}
+	}
+	&.active {
+		color: @@btn-state-color;
+		background-color: @@btn-state-bg;
+		border-color: @@btn-state-border;
+		.text-muted,
+		small,
+		span {
+			color: @@btn-state-color;
+		}
+	}
+}

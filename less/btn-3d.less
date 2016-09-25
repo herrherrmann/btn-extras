@@ -1,5 +1,46 @@
+@import 'node_modules/bootstrap/less/variables';
+@3d-depth: 2px;
 .btn-3d {
-	&.btn-primary {
-		border: 1px solid red;
+	&.btn-default {
+		.btn-variant-3d(default);
 	}
+	&.btn-primary {
+		.btn-variant-3d(primary);
+	}
+}
+
+.btn-variant-3d(@state: primary) {
+	// @state-text-color: 'state-@{state}-text';
+	@btn-state-color: 'btn-@{state}-color';
+	@btn-state-bg: 'btn-@{state}-bg';
+	@btn-state-border: 'btn-@{state}-border';
+	border-top: @3d-depth solid lighten(@@btn-state-bg, 5%);
+	border-right: @3d-depth solid darken(@@btn-state-border, 5%);
+	border-bottom: @3d-depth solid darken(@@btn-state-border, 5%);
+	border-left: @3d-depth solid lighten(@@btn-state-bg, 5%);
+	padding: (@padding-base-vertical - @3d-depth + 1px) (@padding-base-horizontal - @3d-depth + 1px);
+	& when (@state =default) {
+		background-color: darken(@@btn-state-bg, 1%);
+		border-top: @3d-depth solid lighten(@@btn-state-border, 10%);
+		border-left: @3d-depth solid lighten(@@btn-state-border, 10%);
+	}
+	&:hover {
+		border-top: @3d-depth solid darken(@@btn-state-bg, 15%);
+		border-right: 2px solid @@btn-state-border;
+		border-bottom: 2px solid @@btn-state-border;
+		border-left: @3d-depth solid darken(@@btn-state-bg, 15%);
+		& when (@state =default) {
+			background-color: darken(@@btn-state-bg, 5%);
+		}
+	}
+	// &.active {
+	// 	color: @@btn-state-color;
+	// 	background-color: @@btn-state-bg;
+	// 	border-color: @@btn-state-border;
+	// 	.text-muted,
+	// 	small,
+	// 	span {
+	// 		color: @@btn-state-color;
+	// 	}
+	// }
 }
