@@ -8,7 +8,7 @@ import path from 'path';
 const PATHS = {
 	html: ['./index.html'],
 	less: ['./less/**/*.less', './node_modules/bootstrap/less/bootstrap.less'],
-	build: 'build',
+	build: 'docs',
 };
 
 function clean() {
@@ -47,7 +47,7 @@ const build = gulp.series(clean, gulp.parallel(html, styles));
 // }
 
 function watch() {
-	gulp.watch(PATHS.html, html)
+	gulp.watch(PATHS.html, html);
 	gulp.watch(PATHS.less, styles);
 }
 
