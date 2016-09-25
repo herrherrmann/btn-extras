@@ -21,7 +21,7 @@ function html() {
 		.pipe(gulp.dest(PATHS.build));
 }
 
-function styles() {
+function compileLESS() {
 	return gulp
 		.src(PATHS.less)
 		.pipe(less({
@@ -30,7 +30,7 @@ function styles() {
 		.pipe(gulp.dest(`${PATHS.build}/css`));
 }
 
-function minifyCSS() {
+function minifyStyles() {
 	return gulp
 		.src(`${PATHS.build}/css/*.css`)
 		.pipe(cleanCSS())
@@ -38,8 +38,19 @@ function minifyCSS() {
 		.pipe(gulp.dest(PATHS.build));
 }
 
-// function build(done) {
-// 	return gulp.series(clean, html, styles, minifyCSS);
+const styles = gulp.series(compileLESS, minifyStyles);
+
+function watch() {
+	gulp.watch(PATHS.html, html);
+	gulp.watch(PATHS.less, styles);
+}
+export {
+	watch
+};
+
+// FIXME: See https://github.com/sindresorhus/del/issues/45
+// function build() {
+// 	return gulp.series(clean, gulp.parallel(html, styles));
 // }
 
-gulp.task('default', gulp.series(clean, html, styles, minifyCSS));
+gulp.task('default', gulp.series(clean, gulp.parallel(html, styles)));
