@@ -1,0 +1,28 @@
+{
+  "name": "btn-extras",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herrherrmann/btn-extras.git"
+  },
+  "author": "Sebastian Herrmann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/herrherrmann/btn-extras/issues"
+  },
+  "homepage": "https://github.com/herrherrmann/btn-extras#readme",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "del": "^2.2.2",
+    "gulp": "git+https://github.com/gulpjs/gulp.git#4.0",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
